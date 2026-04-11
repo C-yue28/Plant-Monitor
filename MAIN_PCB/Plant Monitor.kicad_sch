@@ -6674,6 +6674,18 @@
 		)
 		(uuid "21580c23-69c9-4be7-89e8-b6cd76402cd6")
 	)
+	(text "Reset Button\n"
+		(exclude_from_sim no)
+		(at 41.402 26.416 0)
+		(effects
+			(font
+				(size 3.81 3.81)
+				(thickness 0.254)
+				(bold yes)
+			)
+		)
+		(uuid "22ac067c-1ce1-4cea-a540-ee373f083c15")
+	)
 	(text "DRV8833 Motor Driver"
 		(exclude_from_sim no)
 		(at 367.03 27.432 0)
@@ -9244,6 +9256,26 @@
 	)
 	(wire
 		(pts
+			(xy 30.48 48.26) (xy 36.83 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac146350-8798-4f7f-9756-0b60825ca1f9")
+	)
+	(wire
+		(pts
+			(xy 46.99 48.26) (xy 49.53 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "acbffa6f-a178-4a78-9387-62b96c41d10a")
+	)
+	(wire
+		(pts
 			(xy 353.06 62.23) (xy 340.36 62.23)
 		)
 		(stroke
@@ -9291,6 +9323,16 @@
 			(type default)
 		)
 		(uuid "b0cd1c30-3182-43c0-9cd3-fd964fe91290")
+	)
+	(wire
+		(pts
+			(xy 49.53 48.26) (xy 49.53 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b121d88b-d024-47c8-ac22-be8f984124a1")
 	)
 	(wire
 		(pts
@@ -10542,6 +10584,16 @@
 		)
 		(uuid "55db549b-09a2-428d-8e21-c1fc2a5b177c")
 	)
+	(label "RUN"
+		(at 118.11 118.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "57be474b-f7e0-4d16-873f-751f9db03a57")
+	)
 	(label "BME280_SDA"
 		(at 203.2 156.21 180)
 		(effects
@@ -10971,6 +11023,16 @@
 			(justify right bottom)
 		)
 		(uuid "d5632df1-563d-404d-8bf9-e1de877ea6b6")
+	)
+	(label "RUN"
+		(at 30.48 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d6894b0d-bde2-456e-a6e1-e59f78195be3")
 	)
 	(label "GPIO16"
 		(at 203.2 143.51 180)
@@ -12861,6 +12923,84 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 49.53 50.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "440f4b5d-8a91-4418-8810-8149cb839f7e")
+		(property "Reference" "#PWR028"
+			(at 49.53 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 49.53 55.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 49.53 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 49.53 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 49.53 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6a4379e0-2005-449b-9c0b-2e3509413e31")
+		)
+		(instances
+			(project "Plant Monitor"
+				(path "/94d2964c-4bbb-42d1-bb87-ec34e272846f"
+					(reference "#PWR028")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 364.49 49.53 0)
 		(mirror y)
 		(unit 1)
@@ -13092,6 +13232,86 @@
 			(project "Plant Monitor"
 				(path "/94d2964c-4bbb-42d1-bb87-ec34e272846f"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 41.91 48.26 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5cf21d7d-fa3a-4433-831f-6edefb06ae0b")
+		(property "Reference" "SW2"
+			(at 41.91 40.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 41.91 43.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:SW_Tactile_SPST_NO_Straight_CK_PTS636Sx25SMTRLFS"
+			(at 41.91 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 41.91 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 41.91 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b76dff93-9262-49c3-a5b3-9c3771948ebc")
+		)
+		(pin "2"
+			(uuid "00ae621c-6da2-4287-ac6c-fed2d8ec15ac")
+		)
+		(instances
+			(project "Plant Monitor"
+				(path "/94d2964c-4bbb-42d1-bb87-ec34e272846f"
+					(reference "SW2")
 					(unit 1)
 				)
 			)
