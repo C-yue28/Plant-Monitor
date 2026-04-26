@@ -1,18 +1,21 @@
+import lightgbm as lgb
 import pandas as pd
-from scipy.optimize import curve_fit
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error
 
-data = pd.read_csv("plant_monitor_data.csv")
+data_features = ["soil", "temp", "humidity", "moisture_diff_1hr", "moisture_diff_3hr", "moisture_diff_6hr", "moisture_mean_6", "moisture_std_6", "moisture_rate"]
+df = pd.read_csv("plant_monitor_data.csv")
 
-x = data[["soil", "temp", "humidity"]]
-y = data["time"]
+X = df[data_features]
+Y = df["time_until_dry"]
 
-# the relationships between the variables was determined after looking at a bunch of online sources and referencing ChatGPT for help
-def model(X, K, a, b, c):
-    S, T, H, P = X
-    return K * (S**a) * (1+b*T) * (1-c*H)
+X_train, X_valid, Y_train, Y_valid = train_test_split(X, Y, shuffle=False, test_size=0.2)
 
-parameters, pcov = curve_fit(model, x, y, p0=[0.05, 0.8, 0.1, 0.5]) # these values are kind of arbitrary, I'm just guessing what would impact it more
-K, a, b, c = parameters
+model = lgb.LGBMRegressor(n_estimators=350, learning_rate=0.05, num_leaves=15)
+model.fit(X_train, Y_train)
 
-with open("plant_monitor_ml_model_params.txt") as file:
-    file.write(str(K)+str(a)+str(b)+str(c)) 
+predictions = model.predict(X_valid)
+print("ERROR: " + mean_absolute_error(Y_valid, predictions))
+
+model.booster_.save_model("plant_monitor_ml_model.txt")
+

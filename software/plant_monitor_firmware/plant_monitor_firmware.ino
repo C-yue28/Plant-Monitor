@@ -49,7 +49,7 @@ bool OLED_ON = 0;
 int OLED_ON_MILLIS = 0;
 
 // time
-int timeStep = 30000; // ms
+int timeStep = 1800000; // ms; 30 minutes
 
 struct days_hours {
   int days;
@@ -90,6 +90,11 @@ days_hours predictTime() {
 
 void displayData() {
 
+  if (OLED_ON) {
+    OLED_ON_MILLIS = millis();
+    return;
+  }
+
   time_until_next_water = predictTime();
 
   oled.drawString(0, 0, "Moisture: %.2f", soil_moisture);
@@ -107,12 +112,11 @@ void displayData() {
 }
 
 void outputData(bool hasWatered) {
-  Serial.println("MILLIS: %f", millis()); // for calculating evaporation rate
   Serial.println("SOIL: %f", soil_moisture);
   Serial.println("TEMPERATURE: %f", temperature);
   Serial.println("HUMIDITY: %f", humidity);
-  Serial.println("PRESSURE: %f", pressure);
-  Serial.println("WATERED: %d", hasWatered);
+  Serial.println("WATERED: %d", hasWatered ? 1 : 0);
+  Serial.println("MILLIS: %f", millis()); // for calculating evaporation rate
 }
 
 void waterPlant() {
@@ -146,7 +150,7 @@ void setup() {
 
   oled.setFont(u8x8_font_8x13_1x2_f);
   if (MODE) {
-    timeStep /= 15;
+    timeStep /= 6; // 30 minutes down to 5 minutes
   }
 
   Serial.println("Ready.");  
