@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 3.2,
-          "height": 3.2,
-          "width": 3.2
+          "drill": 0.0,
+          "height": 1.2,
+          "width": 2.0
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -234,6 +234,10 @@
         {
           "diameter": 0.0,
           "drill": 0.0
+        },
+        {
+          "diameter": 0.625,
+          "drill": 0.3
         }
       ],
       "zones_allow_external_fillets": false
@@ -516,22 +520,6 @@
         "via_diameter": 0.6096,
         "via_drill": 0.3048,
         "wire_width": 6
-      },
-      {
-        "clearance": 0.1524,
-        "diff_pair_gap": 0.1524,
-        "diff_pair_width": 0.1524,
-        "line_style": 0,
-        "microvia_diameter": 0.3048,
-        "microvia_drill": 0.1016,
-        "name": "USB_Data",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.1524,
-        "tuning_profile": "",
-        "via_diameter": 0.6096,
-        "via_drill": 0.3048
       }
     ],
     "meta": {
@@ -539,18 +527,13 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": [
-      {
-        "netclass": "USB_Data",
-        "pattern": "/USB_*"
-      }
-    ]
+    "netclass_patterns": []
   },
   "pcbnew": {
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "C:/Users/Chris Yue/Documents/HackClub/Plant Monitor/production/MAIN_PCB/",
       "specctra_dsn": "",
       "vrml": ""
     },

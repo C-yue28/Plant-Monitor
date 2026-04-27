@@ -88,10 +88,11 @@ days_hours predictTime() {
   time_until_next_water = (M_param-pow(soil_moisture, 1-a)) / (k*(1+b*temperature)*(1-c*humidity)*(1-a))
 }
 
-void displayData() {
+void toggleDisplay() {
 
   if (OLED_ON) {
-    OLED_ON_MILLIS = millis();
+    OLED_ON = false;
+    oled.clearDisplay();
     return;
   }
 
@@ -106,8 +107,8 @@ void displayData() {
     oled.drawString(0, 5, "water: %d:%d", time_until_next_water.days, time_until_next_water.hours);
   }
 
-  OLED_ON_MILLIS = millis();
   OLED_ON = true;
+  delay(50); // debounce button
 
 }
 
@@ -145,7 +146,7 @@ void setup() {
   pinMode(SOIL_SIG, INPUT);
   pinMode(BUTTON, INPUT_PULLUP);
 
-  attachInterrupt(digitalPinToInterrupt(BUTTON), displayData, LOW);
+  attachInterrupt(digitalPinToInterrupt(BUTTON), toggleDisplay, LOW);
   digitalWrite(SLEEP, HIGH);
 
   oled.setFont(u8x8_font_8x13_1x2_f);
@@ -166,11 +167,6 @@ void loop() {
     outputData(true);
   } else {
     outputData(false);
-  }
-
-  if (OLED_ON && millis() - OLED_ON_MILLIS >= timeStep*0.9) {
-    oled.clearDisplay();
-    OLED_ON = false;
   }
 
   delay(timeStep);
