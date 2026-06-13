@@ -13765,7 +13765,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_SON:Winbond_USON-8-1EP_3x2mm_P0.5mm_EP0.2x1.6mm"
+		(property "Footprint" "Package_SO:SOIC-8_5.3x5.3mm_P1.27mm"
 			(at 321.31 218.44 0)
 			(hide yes)
 			(show_name no)
