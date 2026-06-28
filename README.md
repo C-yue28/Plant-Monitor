@@ -12,6 +12,8 @@ The PCB in this project uses an RP2040 microcontroller. The power can either be 
 ![Assembly Section View Front](media/ASSEMBLY_FRONT_SECTION.png)
 ![Assembly Section View Front](media/ASSEMBLY_FRONT.png)
 ![Assembly Section View Front](media/ASSEMBLY_SIDE.png)
+![Schematic](media/FOR REVIEWER/SCHEMATIC.png)
+![Wiring Diagram](media/FOR REVIEWER/WIRING.png)
 
 How is this plant monitor more intelligent than others? Well, I decided to train a machine learning model on the gathered data so that it can predict the time until the next watering, which allows the user to know when to refill the water in the tank. To do this, I added time of day and then did some data augmenting. Specifically, I added some features to the data like moisture rate changes over the past 1, 3, and 6 hours to allow the model to understand how moisture is changing over time, and I also calculated the actual time until the next watering to allow for back propagation. The model's prediction is usually within +- XXX% of the actual time, which I believe is more than sufficient. External wiring is extremely minimal; the only thing which I hooked up was a button (on a breadboard) to pin 19 which connects to ground when pressed and toggles the OLED display. The BME280 breakout is also located on that same breadboard; OLED is secured to the gap in the front of the case and connected to the Grove connector; the soil moisture sensor is connected to the Grove connector and stuck into the soil; the DC motor is connected to the screw terminals and submersed in a separate plastic water tank. The battery is housed in the back corner of the case and connected into the JST 2P terminal. 
 
